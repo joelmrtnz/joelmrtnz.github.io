@@ -31,8 +31,8 @@
       "@content/*": [
         "./content/*"
       ],
-      "@lib/*": [
-        "./lib/*"
+      "@assets/*": [
+        "./assets/*"
       ]
     }
   },
