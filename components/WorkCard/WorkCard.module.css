@@ -1,0 +1,128 @@
+.card__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 24px;
+  margin-bottom: 12px;
+}
+
+.card__title {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 36;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--text-primary);
+}
+
+.card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.card__period {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.card__summary {
+  max-width: var(--measure);
+  color: var(--text-secondary);
+  text-wrap: pretty;
+}
+
+.card__metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 44px;
+  margin-top: 24px;
+}
+
+.card__contributions {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__contribution {
+  max-width: var(--measure);
+  padding: 12px 0 12px 22px;
+  border-top: 1px solid var(--rule);
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  position: relative;
+  text-wrap: pretty;
+}
+
+.card__contribution::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 21px;
+  width: 10px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.card__foot {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px 32px;
+}
+
+.card__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.card__note {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+}
+
+.card__link {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+}
+
+@media (max-width: 760px) {
+  .card__head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card__note {
+    white-space: normal;
+  }
+}

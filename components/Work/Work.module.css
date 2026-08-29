@@ -1,0 +1,17 @@
+.work__preface {
+  max-width: var(--measure);
+  color: var(--text-secondary);
+  margin-bottom: 44px;
+  text-wrap: pretty;
+}
+
+.work__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.work__item + .work__item {
+  margin-top: 48px;
+  padding-top: 48px;
+  border-top: 1px solid var(--rule);
+}
