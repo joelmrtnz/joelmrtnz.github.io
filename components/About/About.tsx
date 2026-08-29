@@ -1,6 +1,8 @@
+import Image from 'next/image';
 import classNames from 'classnames/bind';
 import Metric from '@components/Metric/Metric';
 import { profile } from '@content/profile';
+import portrait from '@assets/portrait.jpg';
 import styles from './About.module.css';
 
 const cx = classNames.bind(styles);
@@ -15,10 +17,21 @@ const metrics = [
 export default function About() {
   return (
     <div className={cx('about')}>
-      <div className={cx('about__prose')}>
-        {profile.about.map((paragraph) => (
-          <p key={paragraph.slice(0, 32)}>{paragraph}</p>
-        ))}
+      <div className={cx('about__intro')}>
+        <div className={cx('about__prose')}>
+          {profile.about.map((paragraph) => (
+            <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+          ))}
+        </div>
+
+        <figure className={cx('about__portrait')}>
+          <Image
+            src={portrait}
+            alt={profile.name}
+            sizes="(max-width: 760px) 168px, 232px"
+            placeholder="blur"
+          />
+        </figure>
       </div>
 
       <div className={cx('about__metrics')}>

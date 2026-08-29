@@ -12,8 +12,6 @@ export default function Hero() {
           <span>{profile.role}</span>
           <span aria-hidden="true">/</span>
           <span>{profile.location}</span>
-          <span aria-hidden="true">/</span>
-          <span>{profile.timezone}</span>
         </p>
 
         <h1 className={cx('hero__name')}>{profile.name}</h1>
