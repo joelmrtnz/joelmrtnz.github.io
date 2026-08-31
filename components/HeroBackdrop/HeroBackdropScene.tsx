@@ -16,7 +16,7 @@ const DARK_OPACITY = 0.9;
 
 // Below this the text fills the full width and there is no empty ground left to paint.
 const MIN_WIDTH = 760;
-const TEXT_EDGE = 0.60;
+const TEXT_EDGE = 0.6;
 
 type BackdropUniforms = {
   uTime: { value: number };
