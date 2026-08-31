@@ -3,6 +3,7 @@
   place-items: center;
   width: 38px;
   height: 38px;
+  background: var(--surface);
   border: 1px solid var(--rule-strong);
   border-radius: 50%;
   font-family: var(--font-body);

@@ -4,7 +4,8 @@
   width: 38px;
   height: 38px;
   padding: 0;
-  background: none;
+  /* Solid, not transparent: the page scrolls under these from 1150px down. */
+  background: var(--surface);
   border: 1px solid var(--rule-strong);
   border-radius: 50%;
   color: var(--text-muted);
