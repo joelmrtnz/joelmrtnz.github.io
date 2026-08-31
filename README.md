@@ -37,10 +37,30 @@ malformed entry fails at build time instead of rendering wrong. `content/types.t
 `profile.ts` and `experience.ts` hold the data, and no component reads a string it did not receive
 as a prop.
 
+### The hero backdrop
+
+`components/HeroBackdrop` draws contour lines of an animated height field behind the hero, in WebGL.
+Three constraints shaped it:
+
+- **It must not cost anything to read the page.** `three` and `@react-three/fiber` load through
+  `next/dynamic` with `ssr: false`, after `load`, in a chunk `index.html` never references. The initial
+  payload is unchanged; the deferred chunk is never fetched when WebGL is missing.
+- **It draws lines, not a wash.** A translucent tint over paper reads as a stain. Iso-lines of the height
+  field, held to one pixel by `fwidth`, read as drawing instead.
+- **It never sits behind text.** Anything drawn under the copy costs contrast, so the surface is masked
+  out of the text column and the whole effect is off below 760px, where the text fills the width.
+
+It reads `--accent` from the document at runtime rather than hardcoding a colour, re-reads it when
+`prefers-color-scheme` changes, renders a single static frame under `prefers-reduced-motion: reduce`,
+and renders nothing at all if the WebGL context is unavailable or lost.
+
+React is pinned to `~19.2.8`: `@react-three/fiber@9` declares `react >=19 <19.3`, so a caret range would
+let an install drift out of its peer range.
+
 ### Theming
 
 `app/globals.css` defines two tiers of custom properties. Primitives hold the raw values and are
 never referenced by components. Semantic tokens are the only tier components read.
 `prefers-color-scheme: dark` remaps the semantic tier alone, so there is no toggle, no JavaScript,
-and no theme flash. The terracotta accent lightens in dark mode because the light-mode value drops
-to 1.4:1 against the dark ground.
+and no theme flash. The ochre accent lightens in dark mode because the light-mode value reaches only
+2.96:1 against the dark ground, under the 4.5:1 WCAG AA needs.

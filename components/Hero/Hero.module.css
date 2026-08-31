@@ -1,4 +1,11 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+}
+
 .hero__inner {
+  position: relative;
+  z-index: 1;
   max-width: var(--page-max);
   margin: 0 auto;
   padding: clamp(72px, 14vh, 148px) var(--gutter) clamp(56px, 10vh, 104px);

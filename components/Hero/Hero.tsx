@@ -1,12 +1,15 @@
 import classNames from 'classnames/bind';
 import { profile } from '@content/profile';
+import HeroBackdrop from '@components/HeroBackdrop/HeroBackdrop';
 import styles from './Hero.module.css';
 
 const cx = classNames.bind(styles);
 
 export default function Hero() {
   return (
-    <header>
+    <header className={cx('hero')}>
+      <HeroBackdrop />
+
       <div className={cx('hero__inner')}>
         <p className={cx('hero__eyebrow')}>
           <span>{profile.role}</span>
