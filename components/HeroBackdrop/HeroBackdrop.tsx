@@ -4,6 +4,7 @@ import { Component, useCallback, useEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import dynamic from 'next/dynamic';
 import classNames from 'classnames/bind';
+import { useResolvedTheme } from '@components/ThemeToggle/useResolvedTheme';
 import { useMediaQuery } from './useMediaQuery';
 import styles from './HeroBackdrop.module.css';
 
@@ -60,7 +61,7 @@ class SilentBoundary extends Component<{ children: ReactNode; onError: () => voi
 }
 
 export default function HeroBackdrop() {
-  const isDark = useMediaQuery('(prefers-color-scheme: dark)');
+  const isDark = useResolvedTheme() === 'dark';
   const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
 
   const hostRef = useRef<HTMLDivElement>(null);

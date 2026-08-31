@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import { Archivo, Fraunces, IBM_Plex_Mono } from 'next/font/google';
+import ThemeToggle from '@components/ThemeToggle/ThemeToggle';
 import './globals.css';
 
 const fraunces = Fraunces({
@@ -22,6 +23,10 @@ const plexMono = IBM_Plex_Mono({
   weight: ['400', '500'],
   variable: '--font-plex-mono',
 });
+
+// Runs before the first paint, so a stored choice never flashes the other scheme.
+const THEME_SCRIPT =
+  "try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}";
 
 const SITE_URL = 'https://joelmrtnz.github.io';
 const DESCRIPTION =
@@ -57,7 +62,11 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${fraunces.variable} ${archivo.variable} ${plexMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+        <ThemeToggle />
+        {children}
+      </body>
     </html>
   );
 }

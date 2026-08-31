@@ -22,6 +22,6 @@ export type Profile = {
   about: string[];
   links: ProfileLink[];
   stack: string[];
-  education: { degree: string; institution: string; status: string };
+  education: { degree: string; institution: string };
   languages: { language: string; level: string }[];
 };

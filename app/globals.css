@@ -56,8 +56,12 @@
   --page-max: 1080px;
 }
 
+/* Two copies on purpose: the media query serves the untouched default, the attribute serves an
+   explicit choice from the toggle. Keep them in sync. They cannot be merged - a media query cannot
+   be part of a selector, and light-dark() would stop getComputedStyle from resolving --accent to a
+   hex, which is what HeroBackdrop reads to colour the shader. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --surface: var(--night-900);
     --surface-raised: var(--night-800);
     --surface-sunken: var(--night-800);
@@ -76,6 +80,26 @@
 
     --focus-ring: var(--ochre-300);
   }
+}
+
+:root[data-theme='dark'] {
+  --surface: var(--night-900);
+  --surface-raised: var(--night-800);
+  --surface-sunken: var(--night-800);
+
+  --text-primary: var(--night-ink-100);
+  --text-secondary: var(--night-ink-300);
+  --text-muted: var(--night-ink-500);
+  --text-on-accent: var(--night-900);
+
+  --rule: var(--night-line);
+  --rule-strong: var(--night-line-strong);
+
+  /* #855611 reaches only 2.96:1 on this ground, so the accent lightens instead. */
+  --accent: var(--ochre-300);
+  --accent-strong: var(--ochre-300);
+
+  --focus-ring: var(--ochre-300);
 }
 
 /* ─── Reset ───────────────────────────────────────────────────── */
@@ -138,4 +162,31 @@ a {
 ::selection {
   background-color: var(--accent);
   color: var(--text-on-accent);
+}
+
+/* ─── Theme reveal ────────────────────────────────────────────── */
+/* The old view holds still and the new one wipes over it from the toggle's centre. */
+::view-transition-old(root) {
+  animation: none;
+  z-index: -1;
+}
+
+::view-transition-new(root) {
+  animation: theme-reveal 0.62s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0 at var(--reveal-x, 50%) var(--reveal-y, 50%));
+  }
+  to {
+    clip-path: circle(var(--reveal-r, 100vmax) at var(--reveal-x, 50%) var(--reveal-y, 50%));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
 }

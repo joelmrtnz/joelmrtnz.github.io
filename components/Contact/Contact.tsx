@@ -32,7 +32,7 @@ export default function Contact() {
         <div className={cx('contact__fact')}>
           <dt className={cx('contact__fact-key')}>Education</dt>
           <dd className={cx('contact__fact-value')}>
-            {profile.education.degree}, {profile.education.institution} ({profile.education.status})
+            {profile.education.degree}, {profile.education.institution}
           </dd>
         </div>
         <div className={cx('contact__fact')}>

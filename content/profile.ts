@@ -11,7 +11,11 @@ export const profile: Profile = {
     'Every module has to hold up against real data and a real migration, not a demo with twenty records. Most of the work is deciding where state lives, what the API contract should be, and which abstraction earns its complexity.',
   ],
   links: [
-    { label: 'Email', value: 'joel.martinez.2001@outlook.com', href: 'mailto:joel.martinez.2001@outlook.com' },
+    {
+      label: 'Email',
+      value: 'joel.martinez.2001@outlook.com',
+      href: 'mailto:joel.martinez.2001@outlook.com',
+    },
     { label: 'GitHub', value: 'joelmrtnz', href: 'https://github.com/joelmrtnz' },
     { label: 'LinkedIn', value: 'in/joelmrtnz', href: 'https://www.linkedin.com/in/joelmrtnz/' },
   ],
@@ -35,7 +39,6 @@ export const profile: Profile = {
   education: {
     degree: 'BSc Information Technology Management',
     institution: 'Universidad Abierta Interamericana',
-    status: 'In progress',
   },
   languages: [
     { language: 'Spanish', level: 'Native' },
