@@ -5,11 +5,11 @@ export const profile: Profile = {
   role: 'Frontend Engineer',
   location: 'Buenos Aires, Argentina',
   timezone: 'UTC-3',
-  lead: 'I build the frontend of Calcubox, a financial operations platform for SMBs. I have owned it since its first commit: 18 business modules, the design system underneath them, and the electronic invoicing UI.',
+  lead: 'I build the frontend of Calcubox, a financial operations platform for SMBs. I have owned it since the first commit: 18 business modules, the design system underneath them, and the electronic invoicing UI.',
   about: [
-    'I have been the frontend on Calcubox since January 2024, first through Miniviable and full time since 2025. The product covers sales, electronic invoicing, inventory and treasury, and it replaces a legacy system that 11 client companies were already running on.',
-    'That constraint shapes the work. Every module has to hold up against real data and a real migration, not a demo with twenty records. Most of what I do is deciding where state lives, what the API contract should be, and which abstraction earns its complexity.',
-    'Before Calcubox I worked at Miniviable, a software consultancy, where I built Supplier Poll on my own and wrote the first version of the Calcubox design system.',
+    'I have been the frontend on Calcubox since January 2024, first through Miniviable and full time since 2025. The product covers sales, electronic invoicing, inventory and treasury, and replaces a legacy system that 11 client companies were already running on.',
+    'Every module has to hold up against real data and a real migration, not a demo with twenty records. Most of what I do is deciding where state lives, what the API contract should be, and which abstraction earns its complexity.',
+    'At Miniviable, a software consultancy, I also built Supplier Poll on my own and wrote the first version of the Calcubox design system.',
   ],
   links: [
     { label: 'Email', value: 'joel.martinez.2001@outlook.com', href: 'mailto:joel.martinez.2001@outlook.com' },

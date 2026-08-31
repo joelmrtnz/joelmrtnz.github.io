@@ -11,7 +11,7 @@ export const work: WorkEntry[] = [
     summary:
       'A financial operations platform for SMBs covering sales, electronic invoicing, inventory and treasury. It replaces a legacy system that 11 client companies were already running on, so every module had to work against real migrated data from day one.',
     contributions: [
-      'Owned the frontend end to end since the first commit, across 18 business modules.',
+      'Owned the frontend since the first commit, across 18 business modules.',
       "Built the electronic invoicing UI for sales, purchases and contacts, including the rules that resolve document type from the seller's and the customer's tax status.",
       'Built the custom fields and saved views system, so each company can extend records and persist its own filtered views.',
       "Built the chat interface for the product's AI agent: conversation UI, input and overlay, wired to the agent's streaming responses.",
@@ -53,7 +53,7 @@ export const work: WorkEntry[] = [
     summary:
       "A B2B directory of manufacturers' production capabilities, letting buyers search suppliers by what they can actually produce. I was the sole developer.",
     contributions: [
-      'Built the product on my own, from the data model through to the interface.',
+      'Built it from the data model through to the interface.',
       'Designed the search and filtering over supplier capabilities.',
     ],
     stack: ['Next.js', 'TypeScript', 'Mantine', 'Firebase'],
