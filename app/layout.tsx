@@ -30,7 +30,7 @@ const THEME_SCRIPT =
 
 const SITE_URL = 'https://joelmrtnz.github.io';
 const DESCRIPTION =
-  'Frontend engineer in Buenos Aires. I build the frontend of Calcubox, a financial operations platform for SMBs.';
+  'Frontend engineer in Buenos Aires. I build the frontend of Calcubox, a financial operations platform for SMBs, including the interface for its AI agent. Heading further into AI engineering and full stack work.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
