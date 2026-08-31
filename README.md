@@ -42,5 +42,5 @@ as a prop.
 `app/globals.css` defines two tiers of custom properties. Primitives hold the raw values and are
 never referenced by components. Semantic tokens are the only tier components read.
 `prefers-color-scheme: dark` remaps the semantic tier alone, so there is no toggle, no JavaScript,
-and no theme flash. The terracotta accent lightens in dark mode because the light-mode value drops
-to 1.4:1 against the dark ground.
+and no theme flash. The ochre accent lightens in dark mode because the light-mode value reaches only
+2.96:1 against the dark ground, under the 4.5:1 WCAG AA needs.

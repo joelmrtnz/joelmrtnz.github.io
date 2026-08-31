@@ -1,21 +1,21 @@
 /* ─── Primitives ──────────────────────────────────────────────── */
 /* Raw values. Components never reference these directly.           */
 :root {
-  --paper-50: #faf8f5;
-  --paper-100: #f4f0e9;
-  --paper-200: #ece6dc;
+  --paper-50: #f7f3ec;
+  --paper-100: #f1ece3;
+  --paper-200: #e9e2d6;
 
   --ink-900: #1a1613;
   --ink-700: #3d352e;
   --ink-500: #6b6055;
-  --ink-300: #786e62;
+  --ink-300: #746a5e;
 
   --line-200: #e2dbd0;
   --line-300: #cfc6b8;
 
-  --terracotta-300: #e08a63;
-  --terracotta-500: #9c4a2f;
-  --terracotta-700: #52251c;
+  --ochre-300: #dda94b;
+  --ochre-500: #855611;
+  --ochre-700: #472d07;
 
   --night-900: #16120f;
   --night-800: #1f1a16;
@@ -41,10 +41,10 @@
   --rule: var(--line-200);
   --rule-strong: var(--line-300);
 
-  --accent: var(--terracotta-500);
-  --accent-strong: var(--terracotta-700);
+  --accent: var(--ochre-500);
+  --accent-strong: var(--ochre-700);
 
-  --focus-ring: var(--terracotta-500);
+  --focus-ring: var(--ochre-500);
 
   --font-display: var(--font-fraunces), Georgia, 'Times New Roman', serif;
   --font-body: var(--font-archivo), system-ui, -apple-system, sans-serif;
@@ -70,11 +70,11 @@
     --rule: var(--night-line);
     --rule-strong: var(--night-line-strong);
 
-    /* #9c4a2f drops to 1.4:1 on this ground, so the accent lightens instead. */
-    --accent: var(--terracotta-300);
-    --accent-strong: var(--terracotta-300);
+    /* #855611 reaches only 2.96:1 on this ground, so the accent lightens instead. */
+    --accent: var(--ochre-300);
+    --accent-strong: var(--ochre-300);
 
-    --focus-ring: var(--terracotta-300);
+    --focus-ring: var(--ochre-300);
   }
 }
 
