@@ -1,9 +1,3 @@
-.contact__lead {
-  max-width: var(--measure);
-  color: var(--text-secondary);
-  margin-bottom: 20px;
-}
-
 .contact__email {
   display: inline-block;
   font-family: var(--font-display);

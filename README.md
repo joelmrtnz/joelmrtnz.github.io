@@ -33,17 +33,9 @@ content/      Typed content modules, kept separate from presentation
 ### Content is typed, not markdown
 
 Content lives in `content/` as TypeScript rather than markdown with a frontmatter parser, so a
-malformed entry fails at build time instead of rendering wrong.
-
-Work entries are discriminated on availability:
-
-```ts
-type WorkEntry = WorkEntryBase &
-  ({ availability: 'private'; note: string } | { availability: 'public'; links: WorkLink[] });
-```
-
-Every entry is currently `private`. When an open-source project is added, the compiler refuses it
-unless it carries links, and no component has to change to render it.
+malformed entry fails at build time instead of rendering wrong. `content/types.ts` holds the shapes,
+`profile.ts` and `experience.ts` hold the data, and no component reads a string it did not receive
+as a prop.
 
 ### Theming
 

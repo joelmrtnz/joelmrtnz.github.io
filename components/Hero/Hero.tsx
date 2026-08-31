@@ -6,7 +6,7 @@ const cx = classNames.bind(styles);
 
 export default function Hero() {
   return (
-    <header className={cx('hero')}>
+    <header>
       <div className={cx('hero__inner')}>
         <p className={cx('hero__eyebrow')}>
           <span>{profile.role}</span>

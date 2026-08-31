@@ -1,28 +1,3 @@
-export type Metric = {
-  value: string;
-  label: string;
-};
-
-export type WorkLink = {
-  label: string;
-  href: string;
-};
-
-type WorkEntryBase = {
-  id: string;
-  title: string;
-  org: 'Calcubox' | 'Miniviable' | 'Personal';
-  period: string;
-  summary: string;
-  contributions: string[];
-  stack: string[];
-  metrics?: Metric[];
-};
-
-/* Discriminated on availability so a future open-source entry cannot be added without links. */
-export type WorkEntry = WorkEntryBase &
-  ({ availability: 'private'; note: string } | { availability: 'public'; links: WorkLink[] });
-
 export type Role = {
   id: string;
   company: string;

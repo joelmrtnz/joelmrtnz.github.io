@@ -4,7 +4,6 @@ import Experience from '@components/Experience/Experience';
 import Hero from '@components/Hero/Hero';
 import Section from '@components/Section/Section';
 import SiteFooter from '@components/SiteFooter/SiteFooter';
-import Work from '@components/Work/Work';
 
 export default function HomePage() {
   return (
@@ -18,10 +17,6 @@ export default function HomePage() {
 
         <Section id="experience" label="Experience">
           <Experience />
-        </Section>
-
-        <Section id="work" label="Selected work">
-          <Work />
         </Section>
 
         <Section id="contact" label="Contact">

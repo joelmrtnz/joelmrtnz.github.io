@@ -8,11 +8,7 @@ const email = profile.links.find((link) => link.label === 'Email');
 
 export default function Contact() {
   return (
-    <div className={cx('contact')}>
-      <p className={cx('contact__lead')}>
-        I am open to frontend roles. Email is the fastest way to reach me.
-      </p>
-
+    <div>
       {email ? (
         <a className={cx('contact__email')} href={email.href}>
           {email.value}

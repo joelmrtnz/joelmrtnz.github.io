@@ -16,7 +16,7 @@ const metrics = [
 
 export default function About() {
   return (
-    <div className={cx('about')}>
+    <div>
       <div className={cx('about__intro')}>
         <div className={cx('about__prose')}>
           {profile.about.map((paragraph) => (
