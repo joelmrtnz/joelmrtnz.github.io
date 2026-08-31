@@ -2,24 +2,29 @@ import Image from 'next/image';
 import classNames from 'classnames/bind';
 import Metric from '@components/Metric/Metric';
 import { profile } from '@content/profile';
+import { ui } from '@content/ui';
+import type { Lang } from '@content/types';
 import portrait from '@assets/portrait.jpg';
 import styles from './About.module.css';
 
 const cx = classNames.bind(styles);
 
-const metrics = [
-  { value: '18', label: 'business modules' },
-  { value: '116', label: 'components' },
-  { value: '96', label: 'Storybook stories' },
-  { value: '11', label: 'client companies' },
-];
+export default function About({ lang }: { lang: Lang }) {
+  const content = profile[lang];
+  const t = ui[lang];
 
-export default function About() {
+  const metrics = [
+    { value: '18', label: t.metrics.modules },
+    { value: '116', label: t.metrics.components },
+    { value: '96', label: t.metrics.stories },
+    { value: '11', label: t.metrics.clients },
+  ];
+
   return (
     <div>
       <div className={cx('about__intro')}>
         <div className={cx('about__prose')}>
-          {profile.about.map((paragraph) => (
+          {content.about.map((paragraph) => (
             <p key={paragraph.slice(0, 32)}>{paragraph}</p>
           ))}
         </div>
@@ -27,7 +32,7 @@ export default function About() {
         <figure className={cx('about__portrait')}>
           <Image
             src={portrait}
-            alt={profile.name}
+            alt={content.name}
             sizes="(max-width: 760px) 168px, 232px"
             placeholder="blur"
           />
@@ -41,9 +46,9 @@ export default function About() {
       </div>
 
       <div className={cx('about__stack')}>
-        <h3 className={cx('about__stack-title')}>Stack</h3>
+        <h3 className={cx('about__stack-title')}>{t.stack}</h3>
         <ul className={cx('about__stack-list')}>
-          {profile.stack.map((item) => (
+          {content.stack.map((item) => (
             <li key={item} className={cx('about__stack-item')}>
               {item}
             </li>

@@ -1,28 +1,31 @@
 import classNames from 'classnames/bind';
 import { profile } from '@content/profile';
+import type { Lang } from '@content/types';
 import HeroBackdrop from '@components/HeroBackdrop/HeroBackdrop';
 import styles from './Hero.module.css';
 
 const cx = classNames.bind(styles);
 
-export default function Hero() {
+export default function Hero({ lang }: { lang: Lang }) {
+  const content = profile[lang];
+
   return (
     <header className={cx('hero')}>
       <HeroBackdrop />
 
       <div className={cx('hero__inner')}>
         <p className={cx('hero__eyebrow')}>
-          <span>{profile.role}</span>
+          <span>{content.role}</span>
           <span aria-hidden="true">/</span>
-          <span>{profile.location}</span>
+          <span>{content.location}</span>
         </p>
 
-        <h1 className={cx('hero__name')}>{profile.name}</h1>
+        <h1 className={cx('hero__name')}>{content.name}</h1>
 
-        <p className={cx('hero__lead')}>{profile.lead}</p>
+        <p className={cx('hero__lead')}>{content.lead}</p>
 
         <ul className={cx('hero__links')}>
-          {profile.links.map((link) => {
+          {content.links.map((link) => {
             const isExternal = link.href.startsWith('http');
 
             return (

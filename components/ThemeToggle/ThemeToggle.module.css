@@ -1,8 +1,4 @@
 .theme-toggle {
-  position: fixed;
-  top: 24px;
-  right: 24px;
-  z-index: 10;
   display: grid;
   place-items: center;
   width: 38px;
@@ -62,12 +58,5 @@
 @media (prefers-reduced-motion: reduce) {
   .theme-toggle {
     transition: none;
-  }
-}
-
-@media (max-width: 760px) {
-  .theme-toggle {
-    top: 16px;
-    right: 16px;
   }
 }

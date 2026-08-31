@@ -1,13 +1,14 @@
 import classNames from 'classnames/bind';
 import { experience } from '@content/experience';
+import type { Lang } from '@content/types';
 import styles from './Experience.module.css';
 
 const cx = classNames.bind(styles);
 
-export default function Experience() {
+export default function Experience({ lang }: { lang: Lang }) {
   return (
     <ol className={cx('experience')}>
-      {experience.map((role) => (
+      {experience[lang].map((role) => (
         <li key={role.id} className={cx('experience__role')}>
           <div className={cx('experience__head')}>
             <h3 className={cx('experience__company')}>{role.company}</h3>

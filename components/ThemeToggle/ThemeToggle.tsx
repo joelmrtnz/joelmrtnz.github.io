@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 
 export const THEME_STORAGE_KEY = 'theme';
 
-export default function ThemeToggle() {
+export default function ThemeToggle({ label }: { label: string }) {
   const handleClick = useCallback((event: MouseEvent<HTMLButtonElement>) => {
     const root = document.documentElement;
     const next = readTheme() === 'dark' ? 'light' : 'dark';
@@ -50,8 +50,8 @@ export default function ThemeToggle() {
       type="button"
       className={cx('theme-toggle')}
       onClick={handleClick}
-      aria-label="Toggle colour scheme"
-      title="Toggle colour scheme"
+      aria-label={label}
+      title={label}
     >
       <svg
         className={cx('theme-toggle__icon', 'theme-toggle__icon--sun')}

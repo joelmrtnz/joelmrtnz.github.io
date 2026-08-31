@@ -1,12 +1,16 @@
 import classNames from 'classnames/bind';
 import { profile } from '@content/profile';
+import { ui } from '@content/ui';
+import type { Lang } from '@content/types';
 import styles from './Contact.module.css';
 
 const cx = classNames.bind(styles);
 
-const email = profile.links.find((link) => link.label === 'Email');
+export default function Contact({ lang }: { lang: Lang }) {
+  const content = profile[lang];
+  const t = ui[lang];
+  const email = content.links.find((link) => link.label === 'Email');
 
-export default function Contact() {
   return (
     <div>
       {email ? (
@@ -16,7 +20,7 @@ export default function Contact() {
       ) : null}
 
       <ul className={cx('contact__links')}>
-        {profile.links
+        {content.links
           .filter((link) => link.label !== 'Email')
           .map((link) => (
             <li key={link.label}>
@@ -30,21 +34,21 @@ export default function Contact() {
 
       <dl className={cx('contact__facts')}>
         <div className={cx('contact__fact')}>
-          <dt className={cx('contact__fact-key')}>Education</dt>
+          <dt className={cx('contact__fact-key')}>{t.facts.education}</dt>
           <dd className={cx('contact__fact-value')}>
-            {profile.education.degree}, {profile.education.institution}
+            {content.education.degree}, {content.education.institution}
           </dd>
         </div>
         <div className={cx('contact__fact')}>
-          <dt className={cx('contact__fact-key')}>Languages</dt>
+          <dt className={cx('contact__fact-key')}>{t.facts.languages}</dt>
           <dd className={cx('contact__fact-value')}>
-            {profile.languages.map((entry) => `${entry.language} (${entry.level})`).join(', ')}
+            {content.languages.map((entry) => `${entry.language} (${entry.level})`).join(', ')}
           </dd>
         </div>
         <div className={cx('contact__fact')}>
-          <dt className={cx('contact__fact-key')}>Based in</dt>
+          <dt className={cx('contact__fact-key')}>{t.facts.location}</dt>
           <dd className={cx('contact__fact-value')}>
-            {profile.location}, {profile.timezone}
+            {content.location}, {content.timezone}
           </dd>
         </div>
       </dl>
