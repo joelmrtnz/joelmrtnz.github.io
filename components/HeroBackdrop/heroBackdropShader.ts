@@ -54,7 +54,12 @@ export const FRAGMENT_SHADER = /* glsl */ `
     float h = surface(p, uTime) * DENSITY;
 
     float edge = min(fract(h), 1.0 - fract(h));
-    float line = 1.0 - smoothstep(0.0, fwidth(h) * 1.1, edge);
+
+    // length(gradient), not fwidth: fwidth is |dFdx| + |dFdy|, which overestimates the gradient by up
+    // to 40% depending on the contour's orientation, so the stroke visibly breathes along its length.
+    vec2 grad = vec2(dFdx(h), dFdy(h));
+    float px = edge / max(length(grad), 1e-5);
+    float line = 1.0 - smoothstep(0.5, 1.6, px);
 
     // The text owns the left column, and anything behind it costs contrast.
     float clear = smoothstep(uTextEdge - 0.08, uTextEdge + 0.08, vUv.x);
