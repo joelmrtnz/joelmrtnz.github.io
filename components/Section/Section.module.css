@@ -9,19 +9,20 @@
   display: grid;
   grid-template-columns: var(--rail) minmax(0, 1fr);
   gap: 40px;
+  align-items: baseline;
 }
 
+/* Same size and opsz as .experience__company so the cap heights match on the shared baseline. */
 .section__label {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  align-self: start;
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 36;
+  font-size: 1.625rem;
+  font-weight: 350;
+  line-height: 1;
+  letter-spacing: 0.005em;
+  color: var(--accent);
   position: sticky;
   top: 40px;
-  padding-top: 0.5em;
 }
 
 .section__body {
@@ -37,6 +38,5 @@
 
   .section__label {
     position: static;
-    padding-top: 0;
   }
 }

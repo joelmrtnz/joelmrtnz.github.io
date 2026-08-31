@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import type { CSSProperties } from 'react';
 import classNames from 'classnames/bind';
 import Metric from '@components/Metric/Metric';
 import { profile } from '@content/profile';
@@ -24,7 +25,10 @@ export default function About() {
           ))}
         </div>
 
-        <figure className={cx('about__portrait')}>
+        <figure
+          className={cx('about__portrait')}
+          style={{ '--portrait': `url(${portrait.src})` } as CSSProperties}
+        >
           <Image
             src={portrait}
             alt={profile.name}

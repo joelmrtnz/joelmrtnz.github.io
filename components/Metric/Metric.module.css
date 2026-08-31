@@ -15,9 +15,7 @@
 }
 
 .metric__label {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
   color: var(--text-muted);
 }

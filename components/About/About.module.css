@@ -7,6 +7,22 @@
 
 .about__portrait {
   margin: 0;
+  position: relative;
+}
+
+/* A luminance mask, so the plate prints only where the photo is bright, the way a real one misregisters. */
+.about__portrait::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translate(9px, 9px);
+  background: var(--accent);
+  opacity: 0.9;
+  -webkit-mask-image: var(--portrait);
+  mask-image: var(--portrait);
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  mask-mode: luminance;
 }
 
 .about__portrait img {
@@ -14,6 +30,7 @@
   width: 100%;
   height: auto;
   border: 1px solid var(--rule);
+  position: relative;
 }
 
 .about__prose {
@@ -42,11 +59,9 @@
 }
 
 .about__stack-title {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
   color: var(--text-muted);
   margin-bottom: 16px;
 }
