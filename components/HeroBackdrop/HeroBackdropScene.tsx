@@ -12,7 +12,7 @@ const TILT = 0.07;
 
 // The wash sits on empty ground, not behind text, so it can be strong enough to actually see.
 const LIGHT_OPACITY = 0.55;
-const DARK_OPACITY = 0.5;
+const DARK_OPACITY = 0.9;
 
 // Below this the text fills the full width and there is no empty ground left to paint.
 const MIN_WIDTH = 760;
