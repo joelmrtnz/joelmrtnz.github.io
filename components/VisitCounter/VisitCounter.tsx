@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import type { ReactNode } from 'react';
 import { ui } from '@content/ui';
 import type { Lang } from '@content/types';
 import { GOATCOUNTER_URL } from './goatcounter';
@@ -11,7 +12,7 @@ function cacheBustingStart() {
   return new Date(Date.UTC(2000, 0, 1) + (minute % 9000) * 86_400_000).toISOString().slice(0, 10);
 }
 
-export default function VisitCounter({ lang }: { lang: Lang }) {
+export default function VisitCounter({ lang, children }: { lang: Lang; children?: ReactNode }) {
   const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
@@ -29,5 +30,9 @@ export default function VisitCounter({ lang }: { lang: Lang }) {
 
   if (count === null) return null;
 
-  return <p>{ui[lang].visits(count.toLocaleString(lang))}</p>;
+  return (
+    <p>
+      {ui[lang].visits(count.toLocaleString(lang))} {children}
+    </p>
+  );
 }
