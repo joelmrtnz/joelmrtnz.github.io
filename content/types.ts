@@ -40,6 +40,7 @@ export type Ui = {
   stack: string;
   facts: { education: string; languages: string; location: string };
   sourceOnGitHub: string;
+  visits: (count: string) => string;
   toggleTheme: string;
   switchLanguage: string;
   metaTitle: string;

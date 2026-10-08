@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import { profile } from '@content/profile';
+import VisitCounter from '@components/VisitCounter/VisitCounter';
 import { ui } from '@content/ui';
 import type { Lang } from '@content/types';
 import styles from './SiteFooter.module.css';
@@ -13,6 +14,7 @@ export default function SiteFooter({ lang }: { lang: Lang }) {
     <footer className={cx('footer')}>
       <div className={cx('footer__inner')}>
         <p>{profile[lang].name}</p>
+        <VisitCounter lang={lang} />
         <p>
           <a className={cx('footer__link')} href={SOURCE_URL} target="_blank" rel="noreferrer">
             {ui[lang].sourceOnGitHub}

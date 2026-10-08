@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react';
+import Script from 'next/script';
 import { Archivo, Fraunces, IBM_Plex_Mono } from 'next/font/google';
 import Controls from '@components/Controls/Controls';
+import { GOATCOUNTER_URL } from '@components/VisitCounter/goatcounter';
 import type { Lang } from '@content/types';
 
 const fraunces = Fraunces({
@@ -40,6 +42,7 @@ export default function Shell({ lang, children }: { lang: Lang; children: ReactN
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
         <Controls lang={lang} />
         {children}
+        <Script data-goatcounter={`${GOATCOUNTER_URL}/count`} src="https://gc.zgo.at/count.js" />
       </body>
     </html>
   );
